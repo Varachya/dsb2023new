@@ -13,7 +13,8 @@ output:
   pdf_document:
     toc: yes
 ---
----
+
+------------------------------------------------------------------------
 
 ```{r}
 #| label: load-libraries
@@ -46,11 +47,10 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 
 mass_shootings <- read_csv(here::here("data", "mass_shootings.csv"))
 
-glimpse(mass_shootings)
-```
+glimpse(mass_shootings)```
 
 | column(variable)     | description                                                                 |
-|--------------------------|----------------------------------------------|
+|--------------------------|---------------------------------------------|
 | case                 | short name of incident                                                      |
 | year, month, day     | year, month, day in which the shooting occurred                             |
 | location             | city and state where the shooting occcurred                                 |
@@ -71,12 +71,27 @@ glimpse(mass_shootings)
 -   Generate a data frame that summarizes the number of mass shootings per year.
 
 ```{r}
+summary <- mass_shootings %>%
+group_by(year) %>%
+  summarise(count=n())
+  
+summary
 
 ```
 
 -   Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.
 
 ```{r}
+mass_shootings_race <- mass_shootings %>%
+group_by(race) %>%
+summarise(count=n()) %>%
+
+#mutate(coun)
+
+mass_shootings_race
+
+ggplot(mass_shootings_race),aes(x=race))+geom_col()
+
 
 ```
 
@@ -140,7 +155,7 @@ The dataset we will use consists of credit card transactions and it includes inf
 
 ## Obtain the data
 
-The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0 and save it in your `dsb` repo, under the `data` folder
+The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox <https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0> and save it in your `dsb` repo, under the `data` folder
 
 ```{r}
 #| echo: false
