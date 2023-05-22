@@ -16,6 +16,7 @@ output:
 
 ------------------------------------------------------------------------
 
+
 ```{r}
 #| label: load-libraries
 #| echo: false # This option disables the printing of code (only output is displayed).
@@ -45,12 +46,13 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 #| warning: false
 
 
-mass_shootings <- read_csv(here::here("data", "mass_shootings.csv"))
+mass_shootings <- read_csv(here::here("data","mass_shootings.csv"))
 
-glimpse(mass_shootings)```
+glimpse(mass_shootings)
+```
 
 | column(variable)     | description                                                                 |
-|--------------------------|---------------------------------------------|
+|--------------------------|----------------------------------------------|
 | case                 | short name of incident                                                      |
 | year, month, day     | year, month, day in which the shooting occurred                             |
 | location             | city and state where the shooting occcurred                                 |
@@ -71,39 +73,59 @@ glimpse(mass_shootings)```
 -   Generate a data frame that summarizes the number of mass shootings per year.
 
 ```{r}
-summary <- mass_shootings %>%
-group_by(year) %>%
+mass_shootings %>%
+  group_by(year) %>%
   summarise(count=n())
-  
-summary
 
 ```
 
 -   Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.
 
 ```{r}
-mass_shootings_race <- mass_shootings %>%
-group_by(race) %>%
-summarise(count=n()) %>%
+race_mass_shootings<-mass_shootings %>%
+  group_by(race) %>% 
+  summarise(count=n()) %>% 
+  arrange(desc(count)) %>% 
+  drop_na() %>% 
+  ggplot(aes(x=reorder(race,-count),y=count))+
+  geom_col()+ 
+  geom_text(aes(label=count),vjust=-0.5) +
+  labs(title = "Mass Shootings by race",
+       x = "Race", y="Number of Mass Shootings") +
+  theme_bw()
 
-#mutate(coun)
-
-mass_shootings_race
-
-ggplot(mass_shootings_race),aes(x=race))+geom_col()
-
+print(race_mass_shootings)
 
 ```
 
 -   Generate a boxplot visualizing the number of total victims, by type of location.
 
 ```{r}
+victims_location_mass_shootings<-mass_shootings %>% 
+  group_by(location_type) %>% 
+  ggplot(aes(x=location_type,y=total_victims))+geom_boxplot()+
+labs(title = "Total Victims in Mass Shootings by Location ",
+       x = "Location", y="Number of Victims") +
+  theme_bw() 
 
+print(victims_location_mass_shootings)
+  
 ```
 
 -   Redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
 
 ```{r}
+
+victims_location_mass_shootings_excl<-
+  mass_shootings %>% 
+  filter(case != "Las Vegas Strip massacre") %>% 
+  group_by(location_type) %>% 
+  ggplot(aes(x=location_type,y=total_victims))+geom_boxplot()+
+labs(title = "Total Victims in Mass Shootings by Location ",
+       x = "Location", y="Number of Victims") +
+  theme_bw()
+
+print(victims_location_mass_shootings_excl)
 
 ```
 
@@ -114,19 +136,38 @@ Address the following questions. Generate appropriate figures/tables to support 
 -   How many white males with prior signs of mental illness initiated a mass shooting after 2000?
 
 ```{r}
+mass_shootings %>%
+  filter(year > 2000, race == "White", prior_mental_illness =="Yes") %>% 
+  summarise(count=n())
+#The number of white males with prior signs of mental illness initiated a mass shooting after 2000 is 23
 
 ```
 
 -   Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological (natural) order (Jan-Feb-Mar- etc) to provide evidence of your answer.
 
 ```{r}
+month_order<-c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
 
+mass_shootings%>% 
+  mutate(month = factor(month, levels=month_order)) %>% 
+  group_by(month) %>% 
+  summarise(count=n()) 
+
+#convert month into factor first which has category and then order
 ```
 
 -   How does the distribution of mass shooting fatalities differ between White and Black shooters? What about White and Latino shooters?
 
 ```{r}
 
+mass_shootings%>% 
+  filter(race %in% c("White","Black","Latino")) %>% 
+ group_by(race) %>% 
+  ggplot(aes(x=fatalities)) +
+  geom_histogram() +
+  facet_wrap(~race)
+  
+  
 ```
 
 ### Very open-ended
@@ -134,14 +175,45 @@ Address the following questions. Generate appropriate figures/tables to support 
 -   Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter?
 
 ```{r}
+mass_shootings%>% 
+ group_by(prior_mental_illness) %>% 
+  summarize(count=n())
+
 
 ```
+
+
 
 -   Assess the relationship between mental illness and total victims, mental illness and location type, and the intersection of all three variables.
 
 ```{r}
-
+mass_shootings%>% 
+ group_by(prior_mental_illness) %>% 
+  drop_na() %>% 
+  ggplot(aes(x=prior_mental_illness,y=total_victims))+geom_boxplot()+
+labs(title = "Total Victims in Mass Shootings by Prior Mental Illness ",
+       x = "Prior Mental Illness", y="Number of Victims") +
+  theme_bw()
 ```
+```{r}
+mass_shootings%>% 
+ group_by(prior_mental_illness) %>% 
+  drop_na() %>% 
+  ggplot(aes(x=prior_mental_illness,fill=location_type))+geom_bar()+
+labs(title = "Mental Illness vs Location Type ",
+       x = "Prior Mental Illness", y="Location Type") +
+  theme_bw()
+```
+```{r}
+mass_shootings%>% 
+ group_by(prior_mental_illness,location_type) %>% 
+  drop_na() %>% 
+  ggplot(aes(x=location_type,y=total_victims,fill=prior_mental_illness))+geom_bar(stat="identity",position="dodge")+
+labs(title = "Relationship between Mental Illness and Location on Total Number of Victims  ",
+       x = "Location Type", y="Total Victim", fill="Mental Illness") +
+  theme_bw()
+```
+
 
 Make sure to provide a couple of sentences of written interpretation of your tables/figures. Graphs and tables alone will not be sufficient to answer this question.
 
@@ -189,6 +261,9 @@ The data dictionary is as follows
 -   In this dataset, how likely are fraudulent transactions? Generate a table that summarizes the number and frequency of fraudulent transactions per year.
 
 ```{r}
+card_fraud %>%
+  group_by(trans_year) %>% 
+  summarise(count=n())
 
 ```
 
