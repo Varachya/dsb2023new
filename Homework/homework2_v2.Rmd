@@ -3,6 +3,10 @@ title: "Homework 2"
 author: "Your name goes here"
 date: "`r Sys.Date()`"
 output:
+  word_document:
+    toc: yes
+  pdf_document:
+    toc: yes
   html_document:
     theme: flatly
     highlight: zenburn
@@ -10,8 +14,6 @@ output:
     toc: yes
     toc_float: yes
     code_folding: show
-  pdf_document:
-    toc: yes
 ---
 
 ------------------------------------------------------------------------
@@ -422,11 +424,6 @@ card_fraud <- card_fraud %>%
     distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians))
   )
 
-fraud %>% 
-  ggplot(aes(x = distance_km, y = is_fraud)) +
-  geom_boxplot()
-
-print()
 
 
 

@@ -13,8 +13,7 @@ output:
   pdf_document:
     toc: yes
 ---
-
-------------------------------------------------------------------------
+---
 
 
 ```{r}
@@ -149,7 +148,11 @@ mass_shootings %>%
 month_order<-c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
 
 mass_shootings%>% 
+<<<<<<< HEAD
   mutate(month = factor(month, levels=month_order)) %>% 
+=======
+  factor(month, levels=month_order)) %>% 
+>>>>>>> 7d71bf3811b03a662aff87808285ece984cfccf3
   group_by(month) %>% 
   summarise(count=n()) 
 
@@ -227,7 +230,7 @@ The dataset we will use consists of credit card transactions and it includes inf
 
 ## Obtain the data
 
-The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox <https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0> and save it in your `dsb` repo, under the `data` folder
+The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0 and save it in your `dsb` repo, under the `data` folder
 
 ```{r}
 #| echo: false
@@ -415,7 +418,12 @@ Specific questions:
     -   An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdom? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
 3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs as shown below
 
-![](images/electricity-co2-gdp.png)
+
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here::here("images", "electricity-co2-gdp.png"), error = FALSE)
+```
+
 
 # Deliverables
 

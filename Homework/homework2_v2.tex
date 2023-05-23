@@ -1,0 +1,1008 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Homework 2},
+  pdfauthor={Your name goes here},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Homework 2}
+\author{Your name goes here}
+\date{2023-05-22}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{data-visualisation---exploration}{%
+\section{Data Visualisation -
+Exploration}\label{data-visualisation---exploration}}
+
+Now that you've demonstrated your software is setup, and you have the
+basics of data manipulation, the goal of this assignment is to practice
+transforming, visualising, and exploring data.
+
+\hypertarget{mass-shootings-in-the-us}{%
+\section{Mass shootings in the US}\label{mass-shootings-in-the-us}}
+
+In July 2012, in the aftermath of a mass shooting in a movie theater in
+Aurora, Colorado,
+\href{https://www.motherjones.com/politics/2012/07/mass-shootings-map/}{Mother
+Jones} published a report on mass shootings in the United States since
+1982. Importantly, they provided the underlying data set as
+\href{https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/}{an
+open-source database} for anyone interested in studying and
+understanding this criminal behavior.
+
+\hypertarget{obtain-the-data}{%
+\subsection{Obtain the data}\label{obtain-the-data}}
+
+\begin{verbatim}
+## Rows: 125
+## Columns: 14
+## $ case                 <chr> "Oxford High School shooting", "San Jose VTA shoo~
+## $ year                 <dbl> 2021, 2021, 2021, 2021, 2021, 2021, 2020, 2020, 2~
+## $ month                <chr> "Nov", "May", "Apr", "Mar", "Mar", "Mar", "Mar", ~
+## $ day                  <dbl> 30, 26, 15, 31, 22, 16, 16, 26, 10, 6, 31, 4, 3, ~
+## $ location             <chr> "Oxford, Michigan", "San Jose, California", "Indi~
+## $ summary              <chr> "Ethan Crumbley, a 15-year-old student at Oxford ~
+## $ fatalities           <dbl> 4, 9, 8, 4, 10, 8, 4, 5, 4, 3, 7, 9, 22, 3, 12, 5~
+## $ injured              <dbl> 7, 0, 7, 1, 0, 1, 0, 0, 3, 8, 25, 27, 26, 12, 4, ~
+## $ total_victims        <dbl> 11, 9, 15, 5, 10, 9, 4, 5, 7, 11, 32, 36, 48, 15,~
+## $ location_type        <chr> "School", "Workplace", "Workplace", "Workplace", ~
+## $ male                 <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T~
+## $ age_of_shooter       <dbl> 15, 57, 19, NA, 21, 21, 31, 51, NA, NA, 36, 24, 2~
+## $ race                 <chr> NA, NA, "White", NA, NA, "White", NA, "Black", "B~
+## $ prior_mental_illness <chr> NA, "Yes", "Yes", NA, "Yes", NA, NA, NA, NA, NA, ~
+\end{verbatim}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3611}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6389}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+column(variable)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+description
+\end{minipage} \\
+\midrule()
+\endhead
+case & short name of incident \\
+year, month, day & year, month, day in which the shooting occurred \\
+location & city and state where the shooting occcurred \\
+summary & brief description of the incident \\
+fatalities & Number of fatalities in the incident, excluding the
+shooter \\
+injured & Number of injured, non-fatal victims in the incident,
+excluding the shooter \\
+total\_victims & number of total victims in the incident, excluding the
+shooter \\
+location\_type & generic location in which the shooting took place \\
+male & logical value, indicating whether the shooter was male \\
+age\_of\_shooter & age of the shooter when the incident occured \\
+race & race of the shooter \\
+prior\_mental\_illness & did the shooter show evidence of mental illness
+prior to the incident? \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{explore-the-data}{%
+\subsection{Explore the data}\label{explore-the-data}}
+
+\hypertarget{specific-questions}{%
+\subsubsection{Specific questions}\label{specific-questions}}
+
+\begin{itemize}
+\tightlist
+\item
+  Generate a data frame that summarizes the number of mass shootings per
+  year.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(year) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 37 x 2
+##     year count
+##    <dbl> <int>
+##  1  1982     1
+##  2  1984     2
+##  3  1986     1
+##  4  1987     1
+##  5  1988     1
+##  6  1989     2
+##  7  1990     1
+##  8  1991     3
+##  9  1992     2
+## 10  1993     4
+## # i 27 more rows
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Generate a bar chart that identifies the number of mass shooters
+  associated with each race category. The bars should be sorted from
+  highest to lowest and each bar should show its number.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{race\_mass\_shootings}\OtherTok{\textless{}{-}}\NormalTok{mass\_shootings }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(race) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(count)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{drop\_na}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{reorder}\NormalTok{(race,}\SpecialCharTok{{-}}\NormalTok{count),}\AttributeTok{y=}\NormalTok{count))}\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{()}\SpecialCharTok{+} 
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label=}\NormalTok{count),}\AttributeTok{vjust=}\SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Mass Shootings by race"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Race"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Number of Mass Shootings"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+
+\FunctionTok{print}\NormalTok{(race\_mass\_shootings)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  Generate a boxplot visualizing the number of total victims, by type of
+  location.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{victims\_location\_mass\_shootings}\OtherTok{\textless{}{-}}\NormalTok{mass\_shootings }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(location\_type) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{location\_type,}\AttributeTok{y=}\NormalTok{total\_victims))}\SpecialCharTok{+}\FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Total Victims in Mass Shootings by Location "}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Location"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Number of Victims"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }
+
+\FunctionTok{print}\NormalTok{(victims\_location\_mass\_shootings)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  Redraw the same plot, but remove the Las Vegas Strip massacre from the
+  dataset.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{victims\_location\_mass\_shootings\_excl}\OtherTok{\textless{}{-}}
+\NormalTok{  mass\_shootings }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(case }\SpecialCharTok{!=} \StringTok{"Las Vegas Strip massacre"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(location\_type) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{location\_type,}\AttributeTok{y=}\NormalTok{total\_victims))}\SpecialCharTok{+}\FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Total Victims in Mass Shootings by Location "}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Location"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Number of Victims"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+
+\FunctionTok{print}\NormalTok{(victims\_location\_mass\_shootings\_excl)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{more-open-ended-questions}{%
+\subsubsection{More open-ended
+questions}\label{more-open-ended-questions}}
+
+Address the following questions. Generate appropriate figures/tables to
+support your conclusions.
+
+\begin{itemize}
+\tightlist
+\item
+  How many white males with prior signs of mental illness initiated a
+  mass shooting after 2000?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(year }\SpecialCharTok{\textgreater{}} \DecValTok{2000}\NormalTok{, race }\SpecialCharTok{==} \StringTok{"White"}\NormalTok{, prior\_mental\_illness }\SpecialCharTok{==}\StringTok{"Yes"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   count
+##   <int>
+## 1    23
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#The number of white males with prior signs of mental illness initiated a mass shooting after 2000 is 23}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Which month of the year has the most mass shootings? Generate a bar
+  chart sorted in chronological (natural) order (Jan-Feb-Mar- etc) to
+  provide evidence of your answer.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{month\_order}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"Jan"}\NormalTok{,}\StringTok{"Feb"}\NormalTok{,}\StringTok{"Mar"}\NormalTok{,}\StringTok{"Apr"}\NormalTok{,}\StringTok{"May"}\NormalTok{,}\StringTok{"Jun"}\NormalTok{,}\StringTok{"Jul"}\NormalTok{,}\StringTok{"Aug"}\NormalTok{,}\StringTok{"Sep"}\NormalTok{,}\StringTok{"Oct"}\NormalTok{,}\StringTok{"Nov"}\NormalTok{,}\StringTok{"Dec"}\NormalTok{)}
+
+\NormalTok{mass\_shootings}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{month =} \FunctionTok{factor}\NormalTok{(month, }\AttributeTok{levels=}\NormalTok{month\_order)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(month) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{()) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 12 x 2
+##    month count
+##    <fct> <int>
+##  1 Jan       7
+##  2 Feb      13
+##  3 Mar      12
+##  4 Apr      11
+##  5 May       8
+##  6 Jun      12
+##  7 Jul      10
+##  8 Aug       8
+##  9 Sep      10
+## 10 Oct      11
+## 11 Nov      12
+## 12 Dec      11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#convert month into factor first which has category and then order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  How does the distribution of mass shooting fatalities differ between
+  White and Black shooters? What about White and Latino shooters?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(race }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"White"}\NormalTok{,}\StringTok{"Black"}\NormalTok{,}\StringTok{"Latino"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+ \FunctionTok{group\_by}\NormalTok{(race) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{fatalities)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{race)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\hypertarget{very-open-ended}{%
+\subsubsection{Very open-ended}\label{very-open-ended}}
+
+\begin{itemize}
+\tightlist
+\item
+  Are mass shootings with shooters suffering from mental illness
+  different from mass shootings with no signs of mental illness in the
+  shooter?
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings}\SpecialCharTok{\%\textgreater{}\%} 
+ \FunctionTok{group\_by}\NormalTok{(prior\_mental\_illness) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   prior_mental_illness count
+##   <chr>                <int>
+## 1 No                      17
+## 2 Yes                     62
+## 3 <NA>                    46
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Assess the relationship between mental illness and total victims,
+  mental illness and location type, and the intersection of all three
+  variables.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings}\SpecialCharTok{\%\textgreater{}\%} 
+ \FunctionTok{group\_by}\NormalTok{(prior\_mental\_illness) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{drop\_na}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{prior\_mental\_illness,}\AttributeTok{y=}\NormalTok{total\_victims))}\SpecialCharTok{+}\FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Total Victims in Mass Shootings by Prior Mental Illness "}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Prior Mental Illness"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Number of Victims"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings}\SpecialCharTok{\%\textgreater{}\%} 
+ \FunctionTok{group\_by}\NormalTok{(prior\_mental\_illness) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{drop\_na}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{prior\_mental\_illness,}\AttributeTok{fill=}\NormalTok{location\_type))}\SpecialCharTok{+}\FunctionTok{geom\_bar}\NormalTok{()}\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Mental Illness vs Location Type "}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Prior Mental Illness"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Location Type"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mass\_shootings}\SpecialCharTok{\%\textgreater{}\%} 
+ \FunctionTok{group\_by}\NormalTok{(prior\_mental\_illness,location\_type) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{drop\_na}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{location\_type,}\AttributeTok{y=}\NormalTok{total\_victims,}\AttributeTok{fill=}\NormalTok{prior\_mental\_illness))}\SpecialCharTok{+}\FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{,}\AttributeTok{position=}\StringTok{"dodge"}\NormalTok{)}\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Relationship between Mental Illness and Location on Total Number of Victims  "}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Location Type"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Total Victim"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"Mental Illness"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+Make sure to provide a couple of sentences of written interpretation of
+your tables/figures. Graphs and tables alone will not be sufficient to
+answer this question.
+
+\hypertarget{exploring-credit-card-fraud}{%
+\section{Exploring credit card
+fraud}\label{exploring-credit-card-fraud}}
+
+We will be using a dataset with credit card transactions containing
+legitimate and fraud transactions. Fraud is typically well below 1\% of
+all transactions, so a naive model that predicts that all transactions
+are legitimate and not fraudulent would have an accuracy of well over
+99\%-- pretty good, no? (well, not quite as we will see later in the
+course)
+
+You can read more on credit card fraud on
+\href{https://www.scirp.org/journal/paperinformation.aspx?paperid=105944}{Credit
+Card Fraud Detection Using Weighted Support Vector Machine}
+
+The dataset we will use consists of credit card transactions and it
+includes information about each transaction including customer details,
+the merchant and category of purchase, and whether or not the
+transaction was a fraud.
+
+\hypertarget{obtain-the-data-1}{%
+\subsection{Obtain the data}\label{obtain-the-data-1}}
+
+The dataset is too large to be hosted on Canvas or Github, so please
+download it from dropbox
+\url{https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0}
+and save it in your \texttt{dsb} repo, under the \texttt{data} folder
+
+\begin{verbatim}
+## Rows: 671,028
+## Columns: 14
+## $ trans_date_trans_time <dttm> 2019-02-22 07:32:58, 2019-02-16 15:07:20, 2019-~
+## $ trans_year            <dbl> 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2020, ~
+## $ category              <chr> "entertainment", "kids_pets", "personal_care", "~
+## $ amt                   <dbl> 7.79, 3.89, 8.43, 40.00, 54.04, 95.61, 64.95, 3.~
+## $ city                  <chr> "Veedersburg", "Holloway", "Arnold", "Apison", "~
+## $ state                 <chr> "IN", "OH", "MO", "TN", "CO", "GA", "MN", "AL", ~
+## $ lat                   <dbl> 40.1186, 40.0113, 38.4305, 35.0149, 39.4584, 32.~
+## $ long                  <dbl> -87.2602, -80.9701, -90.3870, -85.0164, -106.385~
+## $ city_pop              <dbl> 4049, 128, 35439, 3730, 277, 1841, 136, 190178, ~
+## $ job                   <chr> "Development worker, community", "Child psychoth~
+## $ dob                   <chr> "19/10/1959", "3/4/1946", "31/3/1985", "28/1/199~
+## $ merch_lat             <dbl> 39.41679, 39.74585, 37.73078, 34.53277, 39.95244~
+## $ merch_long            <dbl> -87.52619, -81.52477, -91.36875, -84.10676, -106~
+## $ is_fraud              <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+\end{verbatim}
+
+The data dictionary is as follows
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+column(variable) & description \\
+\midrule()
+\endhead
+trans\_date\_trans\_time & Transaction DateTime \\
+trans\_year & Transaction year \\
+category & category of merchant \\
+amt & amount of transaction \\
+city & City of card holder \\
+state & State of card holder \\
+lat & Latitude location of purchase \\
+long & Longitude location of purchase \\
+city\_pop & card holder's city population \\
+job & job of card holder \\
+dob & date of birth of card holder \\
+merch\_lat & Latitude Location of Merchant \\
+merch\_long & Longitude Location of Merchant \\
+is\_fraud & Whether Transaction is Fraud (1) or Not (0) \\
+\bottomrule()
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  In this dataset, how likely are fraudulent transactions? Generate a
+  table that summarizes the number and frequency of fraudulent
+  transactions per year.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{card\_fraud }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(trans\_year) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 2
+##   trans_year  count
+##        <dbl>  <int>
+## 1       2019 478646
+## 2       2020 192382
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  How much money (in US\$ terms) are fraudulent transactions costing the
+  company? Generate a table that summarizes the total amount of
+  legitimate and fraudulent transactions per year and calculate the \%
+  of fraudulent transactions, in US\$ terms.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fraudulent\_transaction\_cost}\OtherTok{\textless{}{-}}\NormalTok{card\_fraud }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{is\_fraud =} \FunctionTok{case\_when}\NormalTok{(is\_fraud }\SpecialCharTok{==} \DecValTok{0} \SpecialCharTok{\textasciitilde{}} \StringTok{"Legitimate"}\NormalTok{, is\_fraud }\SpecialCharTok{==} \DecValTok{1} \SpecialCharTok{\textasciitilde{}} \StringTok{"Fraudulent"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(trans\_year, is\_fraud) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_amount =} \FunctionTok{sum}\NormalTok{(amt),}\AttributeTok{.groups=}\StringTok{\textquotesingle{}keep\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ is\_fraud, }\AttributeTok{values\_from =}\NormalTok{ total\_amount, }\AttributeTok{values\_fill =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{fraud\_percentage =}\NormalTok{ Fraudulent }\SpecialCharTok{/}\NormalTok{ (Legitimate }\SpecialCharTok{+}\NormalTok{ Fraudulent) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(fraudulent\_transaction\_cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+## # Groups:   trans_year [2]
+##   trans_year Fraudulent Legitimate fraud_percentage
+##        <dbl>      <dbl>      <dbl>            <dbl>
+## 1       2019   1423140.  32182901.             4.23
+## 2       2020    651949.  12925914.             4.80
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Generate a histogram that shows the distribution of amounts charged to
+  credit card, both for legitimate and fraudulent accounts. Also, for
+  both types of transactions, calculate some quick summary statistics.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{summary\_table }\OtherTok{\textless{}{-}}\NormalTok{ card\_fraud }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(trans\_year, is\_fraud) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{total\_amt =} \FunctionTok{sum}\NormalTok{(amt))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'trans_year'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# total fraud}
+\NormalTok{fraud\_sum }\OtherTok{\textless{}{-}}\NormalTok{ summary\_table }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(is\_fraud }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{fraud\_amt =}\NormalTok{ total\_amt) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(trans\_year, fraud\_amt)}
+
+\CommentTok{\# total legit}
+\NormalTok{legitimate\_sum }\OtherTok{\textless{}{-}}\NormalTok{ summary\_table }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(is\_fraud }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{legitimate\_amt =}\NormalTok{ total\_amt) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(trans\_year, legitimate\_amt)}
+  
+\NormalTok{fraud\_percentage }\OtherTok{\textless{}{-}}\NormalTok{ fraud\_sum }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(legitimate\_sum, }\AttributeTok{by =} \StringTok{"trans\_year"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{percentage\_fraud =}\NormalTok{ (fraud\_amt }\SpecialCharTok{/}\NormalTok{ (fraud\_amt }\SpecialCharTok{+}\NormalTok{ legitimate\_amt)) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{, }\AttributeTok{percentage\_legitimate =}\NormalTok{ (legitimate\_amt }\SpecialCharTok{/}\NormalTok{ (fraud\_amt }\SpecialCharTok{+}\NormalTok{ legitimate\_amt)) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(trans\_year, fraud\_amt, legitimate\_amt, percentage\_fraud, percentage\_legitimate) }\SpecialCharTok{\%\textgreater{}\%} 
+  
+\FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(trans\_year), }\AttributeTok{y =}\NormalTok{ fraud\_amt }\SpecialCharTok{+}\NormalTok{ legitimate\_amt)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =} \FunctionTok{paste0}\NormalTok{(}\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.1f"}\NormalTok{, }\FunctionTok{round}\NormalTok{(percentage\_fraud, }\DecValTok{1}\NormalTok{)), }\StringTok{"\% Fraud}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.1f"}\NormalTok{, }\FunctionTok{round}\NormalTok{(percentage\_legitimate, }\DecValTok{1}\NormalTok{)), }\StringTok{"\% Legitimate"}\NormalTok{)), }\AttributeTok{width =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Total Amount per Year"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Year"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Total Amount"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"grey"}\NormalTok{, }\StringTok{"black"}\NormalTok{), }\AttributeTok{name =} \StringTok{"Transaction Type"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_discrete}\NormalTok{(}\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"2019"}\NormalTok{, }\StringTok{"2020"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\NormalTok{comma) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{))}
+
+\FunctionTok{print}\NormalTok{(fraud\_percentage)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  What types of purchases are most likely to be instances of fraud?
+  Consider category of merchants and produce a bar chart that shows \%
+  of total fraudulent transactions sorted in order.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate the percentage of fraudulent transactions by merchant category}
+\NormalTok{fraud\_by\_category }\OtherTok{\textless{}{-}}\NormalTok{ card\_fraud }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(is\_fraud }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(category, }\AttributeTok{wt =}\NormalTok{ amt) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{percentage =}\NormalTok{ (n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(percentage))}
+
+\CommentTok{\# Create a bar chart}
+\NormalTok{bar\_chart }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(fraud\_by\_category, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(category, percentage), }\AttributeTok{y =}\NormalTok{ percentage)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Percentage of Fraudulent Transactions by Merchant Category"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Merchant Category"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Percentage of Fraudulent Transactions"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+
+\CommentTok{\# Print the bar chart}
+\NormalTok{bar\_chart}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{homework2_v2_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  When is fraud more prevalent? Which days, months, hours? To create new
+  variables to help you in your analysis, we use the \texttt{lubridate}
+  package and the following code
+\end{itemize}
+
+\begin{verbatim}
+mutate(
+  date_only = lubridate::date(trans_date_trans_time),
+  month_name = lubridate::month(trans_date_trans_time, label=TRUE),
+  hour = lubridate::hour(trans_date_trans_time),
+  weekday = lubridate::wday(trans_date_trans_time, label = TRUE)
+  )
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Are older customers significantly more likely to be victims of credit
+  card fraud? To calculate a customer's age, we use the
+  \texttt{lubridate} package and the following code
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{card\_fraud }\OtherTok{\textless{}{-}}\NormalTok{ card\_fraud }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}
+  \AttributeTok{date\_only =}\NormalTok{ lubridate}\SpecialCharTok{::}\FunctionTok{date}\NormalTok{(trans\_date\_trans\_time),}
+  \AttributeTok{month\_name =}\NormalTok{ lubridate}\SpecialCharTok{::}\FunctionTok{month}\NormalTok{(trans\_date\_trans\_time, }\AttributeTok{label=}\ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{hour =}\NormalTok{ lubridate}\SpecialCharTok{::}\FunctionTok{hour}\NormalTok{(trans\_date\_trans\_time),}
+  \AttributeTok{weekday =}\NormalTok{ lubridate}\SpecialCharTok{::}\FunctionTok{wday}\NormalTok{(trans\_date\_trans\_time, }\AttributeTok{label =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+
+\CommentTok{\#When is fraud more prevalent? }
+\CommentTok{\#by date \#2019{-}01{-}18 has the most fraud}
+\NormalTok{card\_fraud }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(is\_fraud }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(date\_only) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(date\_only, amt) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(amt))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3,936 x 2
+## # Groups:   date_only [493]
+##    date_only    amt
+##    <date>     <dbl>
+##  1 2019-01-18 1334.
+##  2 2019-12-08 1313.
+##  3 2020-06-07 1313.
+##  4 2019-12-20 1295.
+##  5 2019-06-03 1288.
+##  6 2019-08-31 1282.
+##  7 2019-05-20 1262.
+##  8 2019-02-15 1259.
+##  9 2020-03-10 1258.
+## 10 2019-10-05 1246.
+## # i 3,926 more rows
+\end{verbatim}
+
+\#by months \#Mar and May have the most fraud card\_fraud
+\%\textgreater\% filter(is\_fraud == 1) \%\textgreater\%
+group\_by(month\_name) \%\textgreater\% summarise(count = n())
+\%\textgreater\% arrange(desc(count))
+
+\#by hours \#Fraud is likely to happen at hour 23 card\_fraud
+\%\textgreater\% filter(is\_fraud == 1) \%\textgreater\% group\_by(hour)
+\%\textgreater\% summarise(count = n()) \%\textgreater\%
+arrange(desc(count)) \#by day \#Monday has the most fraud card\_fraud
+\%\textgreater\% filter(is\_fraud == 1) \%\textgreater\%
+group\_by(weekday) \%\textgreater\% summarise(count = n())
+\%\textgreater\% arrange(desc(count))
+
+'\,'\,'
+
+\begin{itemize}
+\tightlist
+\item
+  Is fraud related to distance? The distance between a card holder's
+  home and the location of the transaction can be a feature that is
+  related to fraud. To calculate distance, we need the latidue/longitude
+  of card holders's home and the latitude/longitude of the transaction,
+  and we will use the
+  \href{https://en.wikipedia.org/wiki/Haversine_formula}{Haversine
+  formula} to calculate distance. I adapted code to
+  \href{https://www.geeksforgeeks.org/program-distance-two-points-earth/amp/}{calculate
+  distance between two points on earth} which you can find below
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# distance between card holder\textquotesingle{}s home and transaction}
+\CommentTok{\# code adapted from https://www.geeksforgeeks.org/program{-}distance{-}two{-}points{-}earth/amp/}
+
+
+\NormalTok{card\_fraud }\OtherTok{\textless{}{-}}\NormalTok{ card\_fraud }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+        \CommentTok{\# convert latitude/longitude to radians}
+    \AttributeTok{lat1\_radians =}\NormalTok{ lat }\SpecialCharTok{/} \FloatTok{57.29577951}\NormalTok{,}
+    \AttributeTok{lat2\_radians =}\NormalTok{ merch\_lat }\SpecialCharTok{/} \FloatTok{57.29577951}\NormalTok{,}
+    \AttributeTok{long1\_radians =}\NormalTok{ long }\SpecialCharTok{/} \FloatTok{57.29577951}\NormalTok{,}
+    \AttributeTok{long2\_radians =}\NormalTok{ merch\_long }\SpecialCharTok{/} \FloatTok{57.29577951}\NormalTok{,}
+    
+    \CommentTok{\# calculate distance in miles}
+    \AttributeTok{distance\_miles =} \FloatTok{3963.0} \SpecialCharTok{*} \FunctionTok{acos}\NormalTok{((}\FunctionTok{sin}\NormalTok{(lat1\_radians) }\SpecialCharTok{*} \FunctionTok{sin}\NormalTok{(lat2\_radians)) }\SpecialCharTok{+} \FunctionTok{cos}\NormalTok{(lat1\_radians) }\SpecialCharTok{*} \FunctionTok{cos}\NormalTok{(lat2\_radians) }\SpecialCharTok{*} \FunctionTok{cos}\NormalTok{(long2\_radians }\SpecialCharTok{{-}}\NormalTok{ long1\_radians)),}
+
+    \CommentTok{\# calculate distance in km}
+    \AttributeTok{distance\_km =} \FloatTok{6377.830272} \SpecialCharTok{*} \FunctionTok{acos}\NormalTok{((}\FunctionTok{sin}\NormalTok{(lat1\_radians) }\SpecialCharTok{*} \FunctionTok{sin}\NormalTok{(lat2\_radians)) }\SpecialCharTok{+} \FunctionTok{cos}\NormalTok{(lat1\_radians) }\SpecialCharTok{*} \FunctionTok{cos}\NormalTok{(lat2\_radians) }\SpecialCharTok{*} \FunctionTok{cos}\NormalTok{(long2\_radians }\SpecialCharTok{{-}}\NormalTok{ long1\_radians))}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+Plot a boxplot or a violin plot that looks at the relationship of
+distance and \texttt{is\_fraud}. Does distance seem to be a useful
+feature in explaining fraud?
+
+\hypertarget{exploring-sources-of-electricity-production-co2-emissions-and-gdp-per-capita.}{%
+\section{Exploring sources of electricity production, CO2 emissions, and
+GDP per
+capita.}\label{exploring-sources-of-electricity-production-co2-emissions-and-gdp-per-capita.}}
+
+There are many sources of data on how countries generate their
+electricity and their CO2 emissions. I would like you to create three
+graphs:
+
+\hypertarget{a-stacked-area-chart-that-shows-how-your-own-country-generated-its-electricity-since-2000.}{%
+\subsection{1. A stacked area chart that shows how your own country
+generated its electricity since
+2000.}\label{a-stacked-area-chart-that-shows-how-your-own-country-generated-its-electricity-since-2000.}}
+
+You will use
+
+\texttt{geom\_area(colour="grey90",\ alpha\ =\ 0.5,\ position\ =\ "fill")}
+
+\hypertarget{a-scatter-plot-that-looks-at-how-co2-per-capita-and-gdp-per-capita-are-related}{%
+\subsection{2. A scatter plot that looks at how CO2 per capita and GDP
+per capita are
+related}\label{a-scatter-plot-that-looks-at-how-co2-per-capita-and-gdp-per-capita-are-related}}
+
+\hypertarget{a-scatter-plot-that-looks-at-how-electricity-usage-kwh-per-capitaday-gdp-per-capita-are-related}{%
+\subsection{3. A scatter plot that looks at how electricity usage (kWh)
+per capita/day GDP per capita are
+related}\label{a-scatter-plot-that-looks-at-how-electricity-usage-kwh-per-capitaday-gdp-per-capita-are-related}}
+
+We will get energy data from the Our World in Data website, and CO2 and
+GDP per capita emissions from the World Bank, using the
+\texttt{wbstats}package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Download electricity data}
+\NormalTok{url }\OtherTok{\textless{}{-}} \StringTok{"https://nyc3.digitaloceanspaces.com/owid{-}public/data/energy/owid{-}energy{-}data.csv"}
+
+\NormalTok{energy }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(url) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(year }\SpecialCharTok{\textgreater{}=} \DecValTok{1990}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{drop\_na}\NormalTok{(iso\_code) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{,}
+         \AttributeTok{biofuel =}\NormalTok{ biofuel\_electricity,}
+         \AttributeTok{coal =}\NormalTok{ coal\_electricity,}
+         \AttributeTok{gas =}\NormalTok{ gas\_electricity,}
+         \AttributeTok{hydro =}\NormalTok{ hydro\_electricity,}
+         \AttributeTok{nuclear =}\NormalTok{ nuclear\_electricity,}
+         \AttributeTok{oil =}\NormalTok{ oil\_electricity,}
+         \AttributeTok{other\_renewable =}\NormalTok{ other\_renewable\_exc\_biofuel\_electricity,}
+         \AttributeTok{solar =}\NormalTok{ solar\_electricity,}
+         \AttributeTok{wind =}\NormalTok{ wind\_electricity, }
+\NormalTok{         electricity\_demand,}
+\NormalTok{         electricity\_generation,}
+\NormalTok{         net\_elec\_imports,  }\CommentTok{\# Net electricity imports, measured in terawatt{-}hours}
+\NormalTok{         energy\_per\_capita, }\CommentTok{\# Primary energy consumption per capita, measured in kilowatt{-}hours Calculated by Our World in Data based on BP Statistical Review of World Energy and EIA International Energy Data}
+\NormalTok{         energy\_per\_gdp,    }\CommentTok{\# Energy consumption per unit of GDP. This is measured in kilowatt{-}hours per 2011 international{-}$.}
+\NormalTok{         per\_capita\_electricity, }\CommentTok{\#  Electricity generation per capita, measured in kilowatt{-}hours}
+\NormalTok{  ) }
+
+\CommentTok{\# Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC}
+\NormalTok{co2\_percap }\OtherTok{\textless{}{-}} \FunctionTok{wb\_data}\NormalTok{(}\AttributeTok{country =} \StringTok{"countries\_only"}\NormalTok{, }
+                      \AttributeTok{indicator =} \StringTok{"EN.ATM.CO2E.PC"}\NormalTok{, }
+                      \AttributeTok{start\_date =} \DecValTok{1990}\NormalTok{, }
+                      \AttributeTok{end\_date =} \DecValTok{2022}\NormalTok{,}
+                      \AttributeTok{return\_wide=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(value)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\#drop unwanted variables}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(unit, obs\_status, footnote, last\_updated)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{year =}\NormalTok{ date,}
+         \AttributeTok{co2percap =}\NormalTok{ value)}
+
+
+\CommentTok{\# Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD}
+\NormalTok{gdp\_percap }\OtherTok{\textless{}{-}} \FunctionTok{wb\_data}\NormalTok{(}\AttributeTok{country =} \StringTok{"countries\_only"}\NormalTok{, }
+                      \AttributeTok{indicator =} \StringTok{"NY.GDP.PCAP.PP.KD"}\NormalTok{, }
+                      \AttributeTok{start\_date =} \DecValTok{1990}\NormalTok{, }
+                      \AttributeTok{end\_date =} \DecValTok{2022}\NormalTok{,}
+                      \AttributeTok{return\_wide=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(value)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \CommentTok{\#drop unwanted variables}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(unit, obs\_status, footnote, last\_updated)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{year =}\NormalTok{ date,}
+         \AttributeTok{GDPpercap =}\NormalTok{ value)}
+\end{Highlighting}
+\end{Shaded}
+
+Specific questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  How would you turn \texttt{energy} to long, tidy format?
+\item
+  You may need to join these data frames
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Use \texttt{left\_join} from \texttt{dplyr} to
+    \href{http://r4ds.had.co.nz/relational-data.html}{join the tables}
+  \item
+    To complete the merge, you need a unique \emph{key} to match
+    observations between the data frames. Country names may not be
+    consistent among the three dataframes, so please use the 3-digit ISO
+    code for each country
+  \item
+    An aside: There is a great package called
+    \href{https://github.com/vincentarelbundock/countrycode}{\texttt{countrycode}}
+    that helps solve the problem of inconsistent country names (Is it
+    UK? United Kingdom? Great Britain?). \texttt{countrycode()} takes as
+    an input a country's name in a specific format and outputs it using
+    whatever format you specify.
+  \end{itemize}
+\item
+  Write a function that takes as input any country's name and returns
+  all three graphs. You can use the \texttt{patchwork} package to
+  arrange the three graphs as shown below
+\end{enumerate}
+
+\includegraphics{images/electricity-co2-gdp.png}
+
+\hypertarget{deliverables}{%
+\section{Deliverables}\label{deliverables}}
+
+There is a lot of explanatory text, comments, etc. You do not need
+these, so delete them and produce a stand-alone document that you could
+share with someone. Knit the edited and completed R Markdown (qmd) file
+as a Word or HTML document (use the ``Knit'' button at the top of the
+script editor window) and upload it to Canvas. You must be comitting and
+pushing your changes to your own Github repo as you go along.
+
+\hypertarget{details}{%
+\section{Details}\label{details}}
+
+\begin{itemize}
+\tightlist
+\item
+  Who did you collaborate with: TYPE NAMES HERE
+\item
+  Approximately how much time did you spend on this problem set: 8 hours
+\item
+  What, if anything, gave you the most trouble: trying to solve the
+  errors
+\end{itemize}
+
+\textbf{Please seek out help when you need it,} and remember the
+\href{https://dsb2023.netlify.app/syllabus/\#the-15-minute-rule}{15-minute
+rule}. You know enough R (and have enough examples of code from class
+and your readings) to be able to do this. If you get stuck, ask for help
+from others, post a question on Slack-- and remember that I am here to
+help too!
+
+\begin{quote}
+As a true test to yourself, do you understand the code you submitted and
+are you able to explain it to someone else?
+\end{quote}
+
+\hypertarget{rubric}{%
+\section{Rubric}\label{rubric}}
+
+13/13: Problem set is 100\% completed. Every question was attempted and
+answered, and most answers are correct. Code is well-documented (both
+self-documented and with additional comments as necessary). Used
+tidyverse, instead of base R. Graphs and tables are properly labelled.
+Analysis is clear and easy to follow, either because graphs are labeled
+clearly or you've written additional text to describe how you interpret
+the output. Multiple Github commits. Work is exceptional. I will not
+assign these often.
+
+8/13: Problem set is 60--80\% complete and most answers are correct.
+This is the expected level of performance. Solid effort. Hits all the
+elements. No clear mistakes. Easy to follow (both the code and the
+output). A few Github commits.
+
+5/13: Problem set is less than 60\% complete and/or most answers are
+incorrect. This indicates that you need to improve next time. I will
+hopefully not assign these often. Displays minimal effort. Doesn't
+complete all components. Code is poorly written and not documented. Uses
+the same type of plot for each graph, or doesn't use plots appropriate
+for the variables being analyzed. No Github commits.
+
+\end{document}
